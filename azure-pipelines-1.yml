@@ -12,7 +12,7 @@ steps:
   displayName: 'download artifact Ionic App Build CI'
   inputs:
     buildType: 'specific'
-    project: 'Ionic App'
+    project: 'QuixyDevOps'
     definition: 'Ionic App Build CI'
     specificBuildWithTriggering: true
     buildVersionToDownload: 'specific'
