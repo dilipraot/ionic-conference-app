@@ -49,14 +49,18 @@ steps:
   
   - task: PublishBuildArtifacts@1 # Publish App artifact
     inputs:
-        PathtoPublish: '$(Build.BinariesDirectory)/www'
-        ArtifactName: '$(Build.BinariesDirectory)/www'
+        PathtoPublish: '$(Build.BinariesDirectory)'
+        TargetPath: 'www/'
+        ArtifactName: 'www'
         publishLocation: 'Container'
-   
+
+  - bash: |
+      displayName: 'Build.BinariesDirectory: $(Build.BinariesDirectory), $(Build.BinariesDirectory)/www $(System.DefaultWorkingDirectory)'
+
   # Moves the www folder containing bundle to the Default Working Directory path (e.g. /agent/_work/1/s)
   - bash: |
-        mv $(Build.BinariesDirectory)/www $(System.DefaultWorkingDirectory)
-    displayName: 'mv $(Build.BinariesDirectory)/www $(System.DefaultWorkingDirectory)'
+        mv $(Build.BinariesDirectory) $(System.DefaultWorkingDirectory)
+    displayName: 'mv $(Build.BinariesDirectory) $(System.DefaultWorkingDirectory)'
 
   - bash: | # Installing cordova
       sudo npm i -g cordova
