@@ -46,11 +46,11 @@ steps:
     inputs:
       testResultsFormat: 'JUnit'
       testResultsFiles: '**/TESTS-*.xml'
-
+  
   - task: PublishBuildArtifacts@1 # Publish App artifact
     inputs:
-        PathtoPublish: '$(Build.BinariesDirectory)'
-        ArtifactName: 'www'
+        PathtoPublish: '$(Build.BinariesDirectory)/www'
+        ArtifactName: '$(Build.BinariesDirectory)/www'
         publishLocation: 'Container'
    
   # Moves the www folder containing bundle to the Default Working Directory path (e.g. /agent/_work/1/s)
