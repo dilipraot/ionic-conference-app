@@ -11,7 +11,7 @@ steps:
   displayName: 'trigger Ionic App Build CI'
   inputs:
     definitionIsInCurrentTeamProject: true
-    buildDefinition: 'App Build CI'
+    buildDefinition: 'Ionic App Build CI'
     queueBuildForUserThatTriggeredBuild: true
     ignoreSslCertificateErrors: true
     useSameSourceVersion: false
@@ -34,11 +34,11 @@ steps:
 
 # Download the artifact of the build triggered above
 - task: DownloadPipelineArtifact@2
-  displayName: 'download artifact App Build CI'
+  displayName: 'download artifact Ionic App Build CI'
   inputs:
     buildType: 'specific'
     project: 'Ionic App'
-    definition: 'App Build CI'
+    definition: 'Ionic App Build CI'
     specificBuildWithTriggering: true
     buildVersionToDownload: 'specific'
     runId: '$(TriggeredBuildIds)'
