@@ -40,10 +40,6 @@ steps:
     displayName: 'changing version of chromedriver to $(chromeDriverVersion)'
 
 
-  - script: | # Run e2e tests without update webdriver
-      npx --no-install ng e2e --webdriverUpdate=false
-    displayName: 'npm e2e'
-
   - task: PublishTestResults@2 # Publish tests results
     displayName: 'Publishing test results'
     condition: succeededOrFailed()
