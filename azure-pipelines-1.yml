@@ -24,6 +24,7 @@ steps:
     treatPartiallySucceededBuildAsSuccessful: false
     downloadBuildArtifacts: false
     storeInEnvironmentVariable: true
+    authenticationMethod: 'OAuth Token'
     password: '$(System.AccessToken)' # Necessary allow permission of Queue builds to <Project> Build Service, See the troubleshooting topic 
     enableBuildInQueueCondition: false
     dependentOnSuccessfulBuildCondition: false
