@@ -8,10 +8,10 @@ pool:
 steps:
 # This task trigger a new build to run, this build is the same as the step above that generates the bundle
 - task: TriggerBuild@3
-  displayName: 'trigger App Build CI'
+  displayName: 'trigger Ionic App Build CI'
   inputs:
     definitionIsInCurrentTeamProject: true
-    buildDefinition: 'App Build CI'
+    buildDefinition: 'Ionic App Build CI'
     queueBuildForUserThatTriggeredBuild: true
     ignoreSslCertificateErrors: true
     useSameSourceVersion: false
@@ -24,7 +24,6 @@ steps:
     treatPartiallySucceededBuildAsSuccessful: false
     downloadBuildArtifacts: false
     storeInEnvironmentVariable: true
-    authenticationMethod: 'OAuth Token'
     password: '$(System.AccessToken)' # Necessary allow permission of Queue builds to <Project> Build Service, See the troubleshooting topic 
     enableBuildInQueueCondition: false
     dependentOnSuccessfulBuildCondition: false
