@@ -52,7 +52,7 @@ steps:
     displayName: 'Publishing Artifact'  
 
   - task: DownloadPipelineArtifact@2
-    displayName: 'download artifact Ionic App Build CI'
+    displayName: 'download artifact www'
     inputs:
       buildType: 'specific'
       project: 'Ionic App'
