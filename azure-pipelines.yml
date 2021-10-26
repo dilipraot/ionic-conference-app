@@ -59,16 +59,12 @@ steps:
         mv $(Build.BinariesDirectory) $(System.DefaultWorkingDirectory)
     displayName: 'mv $(Build.BinariesDirectory) $(System.DefaultWorkingDirectory)'
     
-  - task: Maven@3
+  - task: JavaToolInstaller@0
     inputs:
-      mavenPomFile: 'pom.xml'
-      mavenOptions: '-Xmx3072m'
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.8'
+      versionSpec: '8'
       jdkArchitectureOption: 'x64'
-      publishJUnitResults: false
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      goals: 'package'
+      jdkSourceOption: 'PreInstalled'
+      
   - bash: | # Installing cordova
       sudo npm i -g cordova
     displayName: 'npm i -g cordova@latest'
