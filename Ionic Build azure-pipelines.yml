@@ -42,7 +42,7 @@ steps:
 
   - script: | # Run e2e tests without update webdriver
       npx --no-install ng e2e --webdriverUpdate=false
-    displayName: 'ng e2e tests'
+    displayName: 'npm e2e'
 
   - task: PublishTestResults@2 # Publish tests results
     displayName: 'Publishing test results'
