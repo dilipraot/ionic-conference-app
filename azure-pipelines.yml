@@ -70,7 +70,7 @@ steps:
     displayName: 'npm i -g cordova@latest'
 
   - bash: | # Build android App using cordova
-      npx ionic cordova build android --prod --release
+      npx ionic cordova build android --prod --release -- -- --packageType=bundle
     displayName: 'ionic cordova build android --no-build --release'
 
   # Needed to solve missing dependency problem, see the troubleshooting topic
@@ -82,17 +82,17 @@ steps:
   - task: AndroidSigning@3
     displayName: 'android signing'
     inputs:
-      apkFiles: '**/outputs/apk/release/app*.apk'
+      apkFiles: '**/outputs/apk/release/app*'
       apksignerKeystoreFile: 'sampleapp.keystore'
   # This password is placed in Variables inside the pipeline and the option to keep the value secret is checked.
       apksignerKeystorePassword: 'test@12345'
       apksignerKeystoreAlias: 'sampleapp'
 
   - task: CopyFiles@2 # Copies all .apk files to publish
-    displayName: 'copy **/outputs/apk/release/app*.apk to $(Build.BinariesDirectory)'
+    displayName: 'copy **/outputs/apk/release/app* to $(Build.BinariesDirectory)'
     inputs:
       SourceFolder: '$(System.DefaultWorkingDirectory)'
-      Contents: '**/outputs/apk/release/app*.apk'
+      Contents: '**/outputs/apk/release/app*'
       CleanTargetFolder: true
       TargetFolder: '$(Build.BinariesDirectory)'
       flattenFolders: true
