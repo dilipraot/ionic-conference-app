@@ -82,17 +82,17 @@ steps:
   - task: AndroidSigning@3
     displayName: 'android signing'
     inputs:
-      apkFiles: '**/outputs/apk/release/app*.aab'
+      apkFiles: '**/outputs/apk/release/app*.apk'
       apksignerKeystoreFile: 'sampleapp.keystore'
   # This password is placed in Variables inside the pipeline and the option to keep the value secret is checked.
       apksignerKeystorePassword: 'test@12345'
       apksignerKeystoreAlias: 'sampleapp'
 
   - task: CopyFiles@2 # Copies all .apk files to publish
-    displayName: 'copy **/outputs/apk/release/app.aab* to $(Build.BinariesDirectory)'
+    displayName: 'copy **/outputs/apk/release/app.apk* to $(Build.BinariesDirectory)'
     inputs:
       SourceFolder: '$(System.DefaultWorkingDirectory)'
-      Contents: '**/outputs/apk/release/app*.aab'
+      Contents: '**/outputs/apk/release/app*.apk'
       CleanTargetFolder: true
       TargetFolder: '$(Build.BinariesDirectory)'
       flattenFolders: true
