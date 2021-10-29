@@ -25,7 +25,7 @@ jobs:
           node-version: 12.13.0
 
       - name: Install Cordova
-        run: npm install -g cordova@latest
+        run: npm install -g cordova@8.0.0
 
       - name: Install Ionic
         run: npm install -g @ionic/cli
