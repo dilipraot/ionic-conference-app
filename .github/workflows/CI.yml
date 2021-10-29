@@ -25,8 +25,10 @@ jobs:
       run: npm ci
     - name: Lint
       run: npm run lint
+    
     - name: Build
       run: npm run build -- --prod
+   
     - name: Test
       run: npm test -- --configuration=ci
       
@@ -35,8 +37,13 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build debug APK
-      run: npm ionic cordova build android
+    
+    - name: Installing cordova
+      run: npm i -g cordova@latest
+    
+    - name: Build android App using cordova
+      run: npx ionic cordova build android --no-build --release
+
     - name: Upload APK
       uses: actions/upload-artifact@v1
       with:
