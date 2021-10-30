@@ -37,19 +37,19 @@ jobs:
         run: npm run build -- --prod
       
       - name: Add Android platform
-        run: ionic cordova platform add android@latest
+        run: npm ionic cordova platform add android@latest
 
       - name: Build Android Dev APK
-        run: ionic cordova build android
-
-      - name: Build Android Release APK
-        run: ionic cordova build android --release --prod
+        run: npm ionic cordova build android
 
       - name: Upload dev APK
         uses: actions/upload-artifact@v1
         with:
           name: app
           path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          
+      - name: Build Android Release APK
+        run: npm ionic cordova build android --release --prod
 
       - name: Upload release bundle
         uses: actions/upload-artifact@v1
