@@ -75,6 +75,7 @@ See [CONTRIBUTING.md](https://github.com/ionic-team/ionic-conference-app/blob/ma
 ## Deploying
 
 ### Progressive Web App
+#
 
 1. Un-comment [these lines](https://github.com/ionic-team/ionic2-app-base/blob/master/src/index.html#L21)
 2. Run `ionic build --prod`
